@@ -1,13 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from functools import wraps
+import sys
+
 #import sqlite3
 
 app = Flask(__name__)
 
-app.secret_key = "cartahe"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#config
+import os
+import config
+
+app.config.from_object(os.environ['APP_SETTINGS'])
 #create the sqlalchemy object
 db = SQLAlchemy(app)
 
