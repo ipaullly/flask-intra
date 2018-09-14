@@ -12,7 +12,7 @@ import os
 import config
 
 app.config.from_object(os.environ['APP_SETTINGS'])
-print (os.environ['APP_SETTINGS'])
+
 #create the sqlalchemy object
 db = SQLAlchemy(app)
 
@@ -58,9 +58,6 @@ def logout():
     session.pop('logged_in', None)
     flash('May Tron grant you mercy as you leave!')
     return redirect(url_for('welcome'))
-
-#def connect_db():
-#    return sqlite3.connect(app.database)
 
 if __name__ == '__main__':
     app.run(debug=True)
