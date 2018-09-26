@@ -1,1 +1,2 @@
 heroku config:set APP_SETTINGS=config.ProductionConfig --remote heroku
+set DATABASE_URL=postgresql://postgres:polmog9439@localhost/discover_flask_dev
